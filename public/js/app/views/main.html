@@ -1,0 +1,173 @@
+<nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle hamburger hamburger-close navbar-toggle-left hided" data-toggle="menubar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="hamburger-bar"></span>
+        </button>
+        <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-collapse" data-toggle="collapse">
+            <i class="icon wb-more-horizontal" aria-hidden="true"></i>
+        </button>
+        <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
+            <span class="navbar-brand-text">Universidad</span>
+        </div>
+
+    </div>
+    <div class="navbar-container container-fluid">
+        <!-- Navbar Collapse -->
+        <div class="collapse navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
+            <!-- Navbar Toolbar -->
+            <ul class="nav navbar-toolbar">
+
+
+            </ul>
+            <!-- End Navbar Toolbar -->
+            <!-- Navbar Toolbar Right -->
+            <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
+                <li class="dropdown">
+
+                </li>
+            </ul>
+            <!-- End Navbar Toolbar Right -->
+        </div>
+        <!-- End Navbar Collapse -->
+        <!-- Site Navbar Seach -->
+
+        <!-- End Site Navbar Seach -->
+    </div>
+</nav>
+<div class="site-menubar">
+    <div class="site-menubar-body">
+        <div>
+            <div>
+
+                <ul class="site-menu">
+                    <li class="site-menu-category">Menu</li>
+                    <li class="site-menu-item has-sub">
+                        <a ui-sref="main.curso" ng-click="barra()">
+                            <i class="site-menu-icon wb-book" aria-hidden="true"></i>
+                            <span class="site-menu-title">Cursos</span>
+                            <div class="site-menu-badge">
+                                <!--span class="badge badge-success">2</span-->
+                            </div>
+                        </a>
+
+                    </li>
+
+                    <li class="site-menu-item has-sub">
+                        <a ui-sref="main.profesor" ng-click="barra()">
+                            <i class="site-menu-icon wb-users" aria-hidden="true"></i>
+                            <span class="site-menu-title">Profesores</span>
+                            <div class="site-menu-badge">
+                                <!--span class="badge badge-success">2</span-->
+                            </div>
+                        </a>
+
+                    </li>
+
+
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Page -->
+<div class="page animation-fade" ui-view>
+    <div class="page-content padding-30 container-fluid">
+        <div class="row" data-plugin="matchHeight" data-by-row="true">
+            <div class="col-xlg-7 col-md-12">
+                <!-- Widget Linearea Color -->
+                <div class="widget widget-shadow widget-responsive" id="widgetLineareaColor">
+                    <div class="widget-content">
+                        <div class="padding-top-30 padding-30" style="height:calc(100% - 250px);">
+                            <div class="row">
+                                <div class="col-xs-9">
+                                    <p class="font-size-20 blue-grey-700">Universidad App</p>
+                                    <div class="row">
+                                        <div class="col-md-7" ui-sref="main.profesor">
+                                            <!-- Widget -->
+                                            <div class="widget">
+                                                <div class="widget-content padding-35 bg-white clearfix">
+                                                    <div class="pull-left white">
+                                                        <i class="icon icon-circle icon-2x wb-users  bg-red-600" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="counter counter-md counter text-right pull-right">
+                                                        <div class="counter-number-group">
+                                                            <span class="counter-number">25</span>
+                                                            <span class="counter-number-related text-capitalize">Profesores</span>
+                                                        </div>
+                                                        <div class="counter-label text-capitalize font-size-16">Agregados</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End Widget -->
+                                        </div>
+
+                                        <div class="col-md-5" ui-sref="main.curso">
+                                            <!-- Widget -->
+                                            <div class="widget">
+                                                <div class="widget-content padding-35 bg-white clearfix">
+                                                    <div class="counter counter-md pull-left text-left">
+                                                        <div class="counter-number-group">
+                                                            <span class="counter-number">42</span>
+                                                            <span class="counter-number-related text-capitalize">Cursos</span>
+                                                        </div>
+                                                        <div class="counter-label text-capitalize font-size-16">Agregados</div>
+                                                    </div>
+                                                    <div class="pull-right white">
+                                                        <i class="icon icon-circle icon-2x wb-book bg-blue-600" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End Widget -->
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- End Widget Linearea Color -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Page -->
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="site-footer-right">© 2016</div>
+    <div class="text-center">
+        Universidad Tecnologica de Bolivar <i class="green-600 wb wb-heart"></i>
+    </div>
+</footer>
+
+<script type="text/ng-template" id="alertas.html">
+    <div class="modal-dialog modal-top">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h4 class="modal-title" >{{data.title}}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="" role="alert">
+
+                   <p class="font-size-20"> {{data.text}}</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="cancel()">{{data.cancel}}</button>
+                <button type="button" class="btn btn-primary" ng-click="ok()">{{data.ok}}</button>
+            </div>
+        </div>
+    </div>
+
+</script>
+
+
