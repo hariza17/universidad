@@ -4,8 +4,9 @@ controllerModule
     .controller('cursoController', ['$scope', 'cursoService',
         '$stateParams', 'toastr', '$rootScope', '$confirm','profesorService',
         function ($scope, cursoService, $stateParams, toastr, $rootScope, $confirm,profesorService) {
-
+//Controlador de la vista curso cuado la url es #/app/curso
             $rootScope.cursos = [];
+            //Obtiene todos los cursos
             $rootScope.getAll = function () {
                 cursoService.getAll().then(function (response) {
                     $rootScope.cursos = response.data;
@@ -13,11 +14,14 @@ controllerModule
 
             };
 
-            $rootScope.getAll();
+            $rootScope.getAll();//LLamada
+
+            //Funcionalidad adicional limpia el historial de navegabilidad
             $rootScope.barra = function () {
                 $rootScope.titulo = "NO";
             };
 
+            //Elimina un curso
             $rootScope.remove = function (id) {
                 $confirm({text: '¿Seguro que desea eliminar?'}).then(function () {
                     cursoService.delete(id).then(function (respuesta) {
@@ -31,6 +35,8 @@ controllerModule
             };
 
             $scope.profesores = [];
+
+            //Obtiene Todos los profesores
             $rootScope.getAllProfesores = function () {
                 profesorService.getAll().then(function (response) {
                     //console.log(response.data);
@@ -42,9 +48,11 @@ controllerModule
     .controller('cursoEditarController', ['$scope', 'cursoService',
         '$stateParams', '$location', 'toastr', '$rootScope',
         function ($scope, cursoService, $stateParams, $location, toastr, $rootScope) {
+            //
             $scope.accion = "Actualizar";
             $rootScope.titulo = "Editar";
             $rootScope.getAllProfesores();
+
             $scope.getCurso = function (cursoId) {
                 cursoService.getById(cursoId).then(function successCallBack(response) {
                     $scope.curso = response.data;
@@ -57,11 +65,11 @@ controllerModule
             };
             $scope.getCurso(parseInt($stateParams.cursoId));
             $scope.guardar = function () {
-                cursoService.update($scope.curso.id, $scope.profesor).then(function (response) {
+                cursoService.update($scope.curso.id, $scope.curso).then(function (response) {
 
                     $rootScope.getAll();
                     toastr.success('Exito', 'Curso Actualizado');
-                    //$location.path('/app/tipo-riesgo');
+                    $location.path('/app/curso');
 
 
                 });

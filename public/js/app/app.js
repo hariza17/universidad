@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-var satApp = angular.module("universidadApp", [
+//Modulo principal
+var universidApp = angular.module("universidadApp", [
     'ui.router',
 	'AppControllers',
 	'AppServices',
@@ -14,37 +14,11 @@ var satApp = angular.module("universidadApp", [
 	'angular-confirm'
 ]);
 
-satApp.provider('modalState', function ($stateProvider) {
-	var provider = this;
-	this.$get = function () {
-		return provider;
-	};
-	this.state = function (stateName, options) {
-		//console.log(options);
-		var modalInstance;
-		$stateProvider.state(stateName, {
-			url: options.url,
-			onEnter: function ($uibModal, $state) {
-				modalInstance = $uibModal.open(options);
-				modalInstance.result['finally'](function () {
-					modalInstance = null;
-					if ($state.$current.name === stateName) {
-						$state.go('^');
-					}
-				});
-			},
-			onExit: function () {
-				if (modalInstance) {
-					modalInstance.close();
-				}
-			},
-			data:options.data
-		});
-	};
-});
+//
 
-satApp.config(['$stateProvider', '$urlRouterProvider', 'toastrConfig', '$locationProvider', 'modalStateProvider','$httpProvider',
-	function ($stateProvider, $urlRouterProvider, toastrConfig, $locationProvider, modalStateProvider,$httpProvider) {
+//Configuando Providers de Angular y estableciendo RUTAS
+universidApp.config(['$stateProvider', '$urlRouterProvider', 'toastrConfig', '$locationProvider','$httpProvider',
+	function ($stateProvider, $urlRouterProvider, toastrConfig, $locationProvider,$httpProvider) {
 
 	angular.extend(toastrConfig, {
 		autoDismiss: false,
@@ -111,8 +85,8 @@ satApp.config(['$stateProvider', '$urlRouterProvider', 'toastrConfig', '$locatio
 		})
 
 }]);
-
-satApp.run(['$confirmModalDefaults',
+//Congurando Dialogos de confirmacion
+universidApp.run(['$confirmModalDefaults',
 	function ($confirmModalDefaults) {
 	$confirmModalDefaults.templateUrl = 'alertas.html';
 	$confirmModalDefaults.defaultLabels.title = 'Mensaje del sistema';

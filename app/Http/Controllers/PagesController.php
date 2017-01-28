@@ -15,6 +15,7 @@ class PagesController extends Controller
      */
     public function index()
     {
+        //Devuelve la vista index.blade.php cuando hacemos GET / y retorna una variable apiUrl con el contenido que tiene en el .env (URL_API)
         $apiUrl=env('URL_API');
         return view('index')->with('apiUrl', $apiUrl);
 

@@ -1,10 +1,12 @@
 <nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" role="navigation">
     <div class="navbar-header">
-        <button type="button" class="navbar-toggle hamburger hamburger-close navbar-toggle-left hided" data-toggle="menubar">
+        <button type="button" class="navbar-toggle hamburger hamburger-close navbar-toggle-left hided"
+                data-toggle="menubar">
             <span class="sr-only">Toggle navigation</span>
             <span class="hamburger-bar"></span>
         </button>
-        <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-collapse" data-toggle="collapse">
+        <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-collapse"
+                data-toggle="collapse">
             <i class="icon wb-more-horizontal" aria-hidden="true"></i>
         </button>
         <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
@@ -43,17 +45,6 @@
                 <ul class="site-menu">
                     <li class="site-menu-category">Menu</li>
                     <li class="site-menu-item has-sub">
-                        <a ui-sref="main.curso" ng-click="barra()">
-                            <i class="site-menu-icon wb-book" aria-hidden="true"></i>
-                            <span class="site-menu-title">Cursos</span>
-                            <div class="site-menu-badge">
-                                <!--span class="badge badge-success">2</span-->
-                            </div>
-                        </a>
-
-                    </li>
-
-                    <li class="site-menu-item has-sub">
                         <a ui-sref="main.profesor" ng-click="barra()">
                             <i class="site-menu-icon wb-users" aria-hidden="true"></i>
                             <span class="site-menu-title">Profesores</span>
@@ -63,7 +54,16 @@
                         </a>
 
                     </li>
+                    <li class="site-menu-item has-sub">
+                        <a ui-sref="main.curso" ng-click="barra()">
+                            <i class="site-menu-icon wb-book" aria-hidden="true"></i>
+                            <span class="site-menu-title">Cursos</span>
+                            <div class="site-menu-badge">
+                                <!--span class="badge badge-success">2</span-->
+                            </div>
+                        </a>
 
+                    </li>
 
 
                 </ul>
@@ -92,14 +92,15 @@
                                             <div class="widget">
                                                 <div class="widget-content padding-35 bg-white clearfix">
                                                     <div class="pull-left white">
-                                                        <i class="icon icon-circle icon-2x wb-users  bg-red-600" aria-hidden="true"></i>
+                                                        <i class="icon icon-circle icon-2x wb-users  bg-red-600"
+                                                           aria-hidden="true"></i>
                                                     </div>
                                                     <div class="counter counter-md counter text-right pull-right">
                                                         <div class="counter-number-group">
-                                                            <span class="counter-number">25</span>
+
                                                             <span class="counter-number-related text-capitalize">Profesores</span>
                                                         </div>
-                                                        <div class="counter-label text-capitalize font-size-16">Agregados</div>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -112,13 +113,14 @@
                                                 <div class="widget-content padding-35 bg-white clearfix">
                                                     <div class="counter counter-md pull-left text-left">
                                                         <div class="counter-number-group">
-                                                            <span class="counter-number">42</span>
+
                                                             <span class="counter-number-related text-capitalize">Cursos</span>
                                                         </div>
-                                                        <div class="counter-label text-capitalize font-size-16">Agregados</div>
+
                                                     </div>
                                                     <div class="pull-right white">
-                                                        <i class="icon icon-circle icon-2x wb-book bg-blue-600" aria-hidden="true"></i>
+                                                        <i class="icon icon-circle icon-2x wb-book bg-blue-600"
+                                                           aria-hidden="true"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -153,12 +155,12 @@
         <div class="modal-content">
             <div class="modal-header">
 
-                <h4 class="modal-title" >{{data.title}}</h4>
+                <h4 class="modal-title">{{data.title}}</h4>
             </div>
             <div class="modal-body">
                 <div class="" role="alert">
 
-                   <p class="font-size-20"> {{data.text}}</p>
+                    <p class="font-size-20"> {{data.text}}</p>
                 </div>
             </div>
             <div class="modal-footer">

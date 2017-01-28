@@ -17,16 +17,21 @@ class ProfesorController extends Controller
      */
 
     public function __construct(){
+        //Ejecuta en metodo find antes de ejecutar el show, udate , destry
 
         $this->beforeFilter('@find',['only'=>['show','update','destroy']]);
     }
 
     public function find(Route $route){
+        //busca el curso por id con el parametro que esta despues de la URL api/profesor/{parameter}
+
         $this->profesor=Profesor::with('cursos')->where('id',$route->getParameter('profesor'))->firstOrFail();
     }
 
     public function index()
     {
+        //Muestra todos los prfesores cuando hacemos GET api/profesor
+
         $profesor = Profesor::all();
         return response()->json($profesor);
     }
@@ -51,6 +56,8 @@ class ProfesorController extends Controller
      */
     public function store(Request $request)
     {
+        //Crea un nuevo registro de profesor cuando hacemos un POST a api/profesor
+
         Profesor::create($request->all());
         return response()->json(["mensaje"=>"Creado correctamente"]);
     }
@@ -63,6 +70,7 @@ class ProfesorController extends Controller
      */
     public function show($id)
     {
+        //Muetra el profesor por id cuando hacemos GET api/profesor/{id}
 
         return response()->json($this->profesor);
     }
@@ -86,6 +94,7 @@ class ProfesorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id){
+        //Actualiza un profesor por id cuando hacemos PUT api/profesor/{id}
 
         $this->profesor->fill($request->all());
         $this->profesor->save();
@@ -100,6 +109,8 @@ class ProfesorController extends Controller
      */
     public function destroy($id)
     {
+        //elimina un profesor por id cuando hacemos DELETE api/profesor/{id}
+
         $this->profesor->delete();
     }
 }

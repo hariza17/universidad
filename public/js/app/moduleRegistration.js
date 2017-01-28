@@ -4,11 +4,9 @@
  * and open the template in the editor.
  */
 
-
+//Creando Modulos para Servicios y Controladores
 angular.module('AppControllers',[]);
 angular.module('AppServices',[]);
 
 
-TOKEN_KEY='utb_token';
-UTB_AUSER='utb_auser';
 

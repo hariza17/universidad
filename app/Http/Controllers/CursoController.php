@@ -18,16 +18,19 @@ class CursoController extends Controller
      */
 
     public function __construct(){
-       
+       //Ejecuta en metodo find antes de ejecutar el show, udate , destry
         $this->beforeFilter('@find',['only'=>['show','update','destroy']]);
+
     }
 
     public function find(Route $route){
+        //busca el curso por id con el parametro que esta despues de la URL api/curso/{parameter}
         $this->curso=Curso::find($route->getParameter('curso'));
     }
 
     public function index()
     {
+        //Muestra todos los cursos con su respectivo profesor cuando hacemos GET api/curso
         $curso = Curso::with('profesor')->get();
         return response()->json($curso);
     }
@@ -52,6 +55,7 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
+        //Crea un nuevo registro de curso cuando hacemos un POST a api/curso
         Curso::create($request->all());
         return response()->json(["mensaje"=>"Creado correctamente"]);
     }
@@ -64,7 +68,7 @@ class CursoController extends Controller
      */
     public function show($id)
     {
-
+        //Muetra el curso por id cuando hacemos GET api/curso/{id}
         return response()->json($this->curso);
     }
 
@@ -87,7 +91,7 @@ class CursoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id){
-
+        //Actualiza un curso por id cuando hacemos PUT api/curso/{id}
         $this->curso->fill($request->all());
         $this->curso->save();
         return response()->json(["mensaje"=>"Actualizacion exitosa"]);
@@ -101,6 +105,7 @@ class CursoController extends Controller
      */
     public function destroy($id)
     {
+        //elimina un curso por id cuando hacemos DELETE api/curso/{id}
         $this->curso->delete();
     }
 }

@@ -12,11 +12,14 @@
 */
 
 
-Route::group(['prefix' => 'api'], function () {
+Route::group(['prefix' => 'api'], function () {////Prefijo api para rutas contenidas en el
 
-    Route::resource('curso', 'CursoController');
-    Route::resource('profesor', 'ProfesorController');
+
+    Route::resource('curso', 'CursoController');//Ruta para curso estilo API, GET,POST,PUT, DELETE
+
+    Route::resource('profesor', 'ProfesorController');//Ruta para Profesores estilo API , GET,POST,PUT, DELETE
 
 });
 
+//Creando ruta inical /
 Route::get('/', 'PagesController@index');
